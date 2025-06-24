@@ -57,11 +57,11 @@ model Availability{
   doctor User @relation(fields: [doctorId],references: [id],onDelete: Cascade)
   startTime DateTime
   endTime DateTime
-  status SlotStatus @default(Available)
+  status SlotStatus @default(AVAILABLE) // Status of the slot: AVAILABLE, BOOKED, BLOCKED
   @@index([doctorId,startTime])
 }
 enum SlotStatus{
-  Available
+  AVAILABLE
   BOOKED
   BLOCKED
 }

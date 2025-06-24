@@ -2,8 +2,8 @@ import { getCurrentUser } from '@/actions/onboarding'
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { AlertCircle, ClipboardCheck, XCircle } from 'lucide-react';
-import { redirect } from 'next/dist/server/api-utils';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import React from 'react'
 
 const VerificationPage = async() => {
@@ -12,7 +12,7 @@ const VerificationPage = async() => {
     // Already verified , return to dashboard
 
     if(user?.verificationStatus === "VERIFIED"){
-        redirect("/doctor")
+        redirect('/doctor')
     }
 
     const isRejected = user?.verificationStatus === "REJECTED"
